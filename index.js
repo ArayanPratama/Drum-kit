@@ -21,16 +21,19 @@
    // }
 
 
+   
+
+//    for (var i = 0; i < numberOfDrum; i++) {
+//    document.querySelectorAll(".drum")[i].addEventListener("click", function(){
+//       var buttonInnerHTML = this.innerHTML;
+//       makeSound(buttonInnerHTML);
+
+//    })
+// }
+
     //detecting button press
    var numberOfDrum = document.querySelectorAll(".drum").length;
 
-   for (var i = 0; i < numberOfDrum; i++) {
-   // document.querySelectorAll(".drum")[i].addEventListener("click", function(){
-   //    var buttonInnerHTML = this.innerHTML;
-   //    makeSound(buttonInnerHTML);
-
-   // })
-}
    document.addEventListener("keypress", function(event){
       makeSound(event.key);
    });
