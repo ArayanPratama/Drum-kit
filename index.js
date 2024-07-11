@@ -33,6 +33,7 @@ for (var i = 0; i < numberOfDrum; i++) {
 
 //detecting button press
 document.addEventListener("keypress", function (e) {
+  console.log("key pressed : " + e.key);
   makeSound(e.key);
   makeAnimation(e.key);
 });
@@ -75,15 +76,18 @@ function makeSound(kunci) {
       break;
 
     default:
+      alert(kunci + " Is not defined!!!")
       break;
   }
 }
 function makeAnimation(kunci) {
   var activeButton = document.querySelector("." + kunci);
   if (activeButton) {
+    console.log("animating button for key : " + kunci);
     activeButton.classList.add("pressed");
 
     setTimeout(function () {
+      console.log("remove animating button for key : " + kunci);
       activeButton.classList.remove("pressed");
     }, 100);
   }
