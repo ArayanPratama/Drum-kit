@@ -12,20 +12,22 @@ const listOfSounds = [
 var numberOfDrum = document.querySelectorAll(".drum").length;
 
 for (var i = 0; i < numberOfDrum; i++) {
-   document.querySelectorAll(".drum")[i].addEventListener(
-      "click",
-      (function (i) {
-         return function () {
-            var audio = new Audio("sounds/" + listOfSounds[i]);
-            audio.play();
-         };
-      })(i)
-   );
+  document.querySelectorAll(".drum")[i].addEventListener(
+    "click",
+    (function (i) {
+      return function () {
+        var audio = new Audio("sounds/" + listOfSounds[i]);
+        audio.play();
+        var buttonInnerHTML = this.innerHTML;
+        makeAnimation(buttonInnerHTML);
+      };
+    })(i)
+  );
 }
 
 //detecting button press
 document.addEventListener("keypress", function (e) {
-   makeSound(e.key);
+  makeSound(e.key);
 });
 //detecting keyboard press
 function makeSound(kunci) {
@@ -66,7 +68,23 @@ function makeSound(kunci) {
       break;
 
     default:
-      alert(kunci + " Is not defined!!!")
+      alert(kunci + " is not defined!!!");
       break;
   }
+
+  makeAnimation(kunci);
 }
+
+function makeAnimation(kunci) {
+  var button = document.querySelector("." + kunci);
+
+  if (button) {
+    button.classList.add("pressed");
+
+    setTimeout(function () {
+      button.classList.remove("pressed");
+    }, 100); // Adjust the duration as needed
+  }
+}
+
+
