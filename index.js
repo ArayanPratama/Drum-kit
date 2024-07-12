@@ -71,7 +71,6 @@ function makeSound(kunci) {
       alert(kunci + " is not defined!!!");
       break;
   }
-
   makeAnimation(kunci);
 }
 
