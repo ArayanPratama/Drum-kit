@@ -8,7 +8,7 @@ const listOfSounds = [
    "crash.mp3",
    "kick-bass.mp3",
 ];
-
+//detecting mouse click
 var numberOfDrum = document.querySelectorAll(".drum").length;
 for (var i = 0; i < numberOfDrum; i++) {
    document.querySelectorAll(".drum")[i].addEventListener(
@@ -19,11 +19,13 @@ for (var i = 0; i < numberOfDrum; i++) {
             audio.play();
          };
       })(i)
-   );
+   ); 
 }
+
 //detecting button press
 document.addEventListener("keypress", function (e) {
    makeSound(e.key);
+   buttonAnimation(e.key);
 });
 //detecting keyboard press
 function makeSound(kunci) {
@@ -66,4 +68,10 @@ function makeSound(kunci) {
       default:
          break;
    }
+}
+
+function buttonAnimation(currentkey) {
+   var activeButton = document.querySelector("." + currentkey);
+   activeButton.classList.add("pressed");
+  
 }
